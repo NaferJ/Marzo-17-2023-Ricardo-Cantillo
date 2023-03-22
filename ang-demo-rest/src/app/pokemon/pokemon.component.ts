@@ -12,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
 export class PokemonComponent implements OnInit {
 
   public name: any;
-
+  public urlImage: any;
   
   constructor(private PokemonService : PokemonService) {
     
@@ -23,8 +23,9 @@ export class PokemonComponent implements OnInit {
   }
 
   search(){
-    this.PokemonService.getPokemon(this.name).subscribe(data=> {
-      console.log(data)
+    this.PokemonService.getPokemon(this.name).subscribe((data: any)=> {
+      this.urlImage = data.sprites.front_default
+      //console.log(data)
     })
   }
 
